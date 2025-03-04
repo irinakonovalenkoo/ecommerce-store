@@ -8,7 +8,6 @@ import Filter from "./components/filter";
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filters";
-import { Stringifiable } from "query-string";
 
 export const revalidate = 0;
 
