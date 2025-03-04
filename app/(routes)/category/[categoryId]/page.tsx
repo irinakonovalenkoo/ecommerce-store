@@ -11,20 +11,10 @@ import MobileFilters from "./components/mobile-filters";
 
 export const revalidate = 0;
 
-interface CategoryPageProps {
-    params: {
-        categoryId: string;
-    },
-    searchParams: {
-        colorId: string;
-        sizeId: string;
-    }
-}
+type Params = Promise<{ categoryId: string }>
+type SearchParams = Promise<{ colorId: string, sizeId: string }>
 
-const CategoryPage: React.FC<CategoryPageProps> = async ({ 
-    params, 
-    searchParams 
-}) => {
+const CategoryPage = async ({ params, searchParams }: { params: Params, searchParams: SearchParams }) => {
     const { categoryId } = await params;
     const { colorId, sizeId } = await searchParams;
     const products = await getProducts({ categoryId: categoryId, colorId: colorId, sizeId: sizeId })
